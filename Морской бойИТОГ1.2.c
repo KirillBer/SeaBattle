@@ -121,7 +121,7 @@ void MainMenu(){ 	//взаимодействие; количество кораблей в игре
 			}
 			case CHANGE_MAX_SHIP_LEN:
 			{
-				ChangeMaxLen();
+				ChangeMaxLen(&ships_count_main);
 				break;
 			}
 			case INSTRUCTION:	//вывести инструкцию
@@ -238,7 +238,7 @@ int ResetShipsCount(int ships_count_main){		//запрос на сброс количества корабле
 	printf("Значения не были сброшены.\n");
 	return 1;
 }
-void ChangeMaxLen(){							//изменение максимальной длины корабля в игре
+void ChangeMaxLen(int *ships_count){				//изменение максимальной длины корабля в игре
 	int i;
 	while(1)
 	{
@@ -257,6 +257,8 @@ void ChangeMaxLen(){							//изменение максимальной длины корабля в игре
 		}
 		else
 		{
+			if (ship_len_limit > i + 1)
+				*ships_count -= (*ships_count / IntPow(10, i)) * IntPow(10, i);
 			ship_len_limit = i + 1;
 			system("cls");
 			printf("Максимальная длина успешно изменена.\n");
