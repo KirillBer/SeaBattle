@@ -570,6 +570,7 @@ int InputColorID(char *word){							//запрос на ввод ColorID
 		printf("Доступные цвета:\n");
 		PrintAvailableColors();
 		printf("Введите код цвета, которым будет отображаться надпись %s и название поля:\n", word);
+		fflush(stdin);
 		if (scanf("%d", &i)!=1 || i < 0 || i > 7)
 		{
 			InputErrorMessage();
