@@ -85,14 +85,14 @@ void MainMenu(){ 	//взаимодействие; количество кораблей в игре
 							+	100	*	2 + 1000 *	1); //стандартно 1234
 	int lim = ship_len_limit;	//стандартно = 5
 	int main_ships_value = ships_count_main; //значение для сброса количества кораблей при необходимости
-	short MENU_STATUS = 1;
+	int MENU_STATUS = 1;
 	CountShips(ships_count_main);
 	while(1)
 	{
 		while
 		(
 			printf("Вы находитесь в главном меню. Введите номер того действия, которое хотите выполнить.\n")
-			  ,PrintMenu(), fflush(stdin), scanf("%hd", &MENU_STATUS) != 1 || (MENU_STATUS < 0 || MENU_STATUS >= MENU_LEN)
+			  ,PrintMenu(), fflush(stdin), scanf("%d", &MENU_STATUS) != 1 || (MENU_STATUS < 0 || MENU_STATUS >= MENU_LEN)
 		)
 			InputErrorMessage();
 		system("cls");
